@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive temperature converter</title>
+    <link rel="stylesheet" href="/cwwtech individual project/temp.css">
+</head>
+<body>
+    
+    <header>
+        <h3>ISABAL INTERACTIVE TEMPERATURE CONVERTER</h3>
+    </header> <br><br>
+
+    <main>
+        <div class="temp-container">
+            <div class="sub-container">
+                <div class="centigrade">
+                    <label for="centigrade">Degree centigrade</label><br>
+                    <input type="number" name="" id="centigrade">
+                   
+                </div>
+                <div class="kelvin">
+                    <label for="kelvin">Kelvin</label><br>
+                    <input type="number" name="" id="kelvin">
+                   
+                </div>
+                <div class="fahrenheit">
+                    <label for="fahrenheit"> Fahrenheit</label><br>
+                    <input type="number" name="" id="fahrenheit">
+                   
+                </div>
+            </div>
+        </div>
+        
+    </main> <br><br>
+
+    <footer>
+        <P> &COPY; 2023 ISABAL | All rights reserved</P>
+    </footer>
+</body>
+    <script>
+        let centigrade = document.getElementById("centigrade");
+let kelvin = document.getElementById("kelvin");
+let farenheit = document.getElementById("fahrenheit");
+
+centigrade.oninput = () =>{
+    let result = (parseFloat(centigrade.value)*9)/5 +32;
+    let result1 = (parseFloat(centigrade.value)+273.15);
+    farenheit.value = parseFloat(result.toFixed(2));
+    kelvin.value = parseFloat(result1.toFixed(2));
+     
+};
+
+kelvin.oninput = () =>{
+    let result = (parseFloat(kelvin.value)-273);
+    let result1 = (((parseFloat(kelvin.value)-273.15)*1.8)+32);
+    centigrade.value = parseFloat(result.toFixed(2));
+    fahrenheit.value = parseFloat(result1.toFixed(2));
+     
+};
+
+fahrenheit.oninput = () =>{
+    let result = ((parseFloat(fahrenheit.value)-32)/1.8);
+    let result1 = (((parseFloat(fahrenheit.value)-32)/1.8)+273.15);
+    centigrade.value = parseFloat(result.toFixed(2));
+    kelvin.value = parseFloat(result1.toFixed(2));
+     
+};
+
+    </script>
+</html>
